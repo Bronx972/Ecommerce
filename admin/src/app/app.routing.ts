@@ -15,6 +15,7 @@ import { ConfigComponent } from "./components/config/config.component";
 import { IndexDescuentoComponent } from "./components/descuento/index-descuento/index-descuento.component";
 import { CreateDescuentoComponent } from "./components/descuento/create-descuento/create-descuento.component";
 import { EditDescuentoComponent } from "./components/descuento/edit-descuento/edit-descuento.component";
+import { ReservaComponent } from "./components/reserva/reserva.component";
 
 const appRoutes: Routes = [
     {path : '', redirectTo:'inicio', pathMatch : 'full'},
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
         {path:'descuentos/registro', component: CreateDescuentoComponent, canActivate:[AdminGuard]},
         {path:'descuentos/:id', component: EditDescuentoComponent, canActivate:[AdminGuard]},
         {path:'configuraciones', component:ConfigComponent, canActivate:[AdminGuard]},
+        {path:'reserva', component:ReservaComponent, canActivate:[AdminGuard]},
     ]},
     {path: 'login', component:LoginComponent}
     

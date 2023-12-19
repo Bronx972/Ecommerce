@@ -18,8 +18,10 @@ export class NutricionistaComponent {
   public id;
   public url;
   public user_lc: any | null = null;
+  public rev: any | null = null;
   public config_global: any = {};
   public data: any | null ;
+  public existeReserva: boolean = false;
 
   public reserva : any ={
     genero:''
@@ -32,6 +34,15 @@ export class NutricionistaComponent {
     this.url=global.url;
     this.token = localStorage.getItem('token');
     this.id = localStorage.getItem('_id');
+    this._clienteService.obtenerReservas(this.token).subscribe(
+      response => {
+        this.rev = response.data;
+
+        // Verificar si existe una reserva al inicializar el componente
+        this.existeReserva = this.encontrarReservaPorDni();
+      }
+    )
+
     this._clienteService.obtener_config_publico().subscribe(
       response=>{
         this.config_global = response.data;
@@ -50,6 +61,15 @@ export class NutricionistaComponent {
     }
     
   }
+  
+  encontrarReservaPorDni(){
+    for (const reserva of this.rev ) {
+      if (reserva.dni === this.user_lc?.dni) {
+        return this.existeReserva = true;
+      }
+    }
+    return  false;
+  }
 
   Reserva(reservaForm : NgForm){
     if(reservaForm.valid){
@@ -66,13 +86,13 @@ export class NutricionistaComponent {
             message:'Se reservo de manera exitosa'
           });
           this.reserva = {
-            genero:'',
             nombres:'',
             apellidos:'',
-            f_nacimiento:'',
-            telefono:'',
-            dni:'',
             email:'',
+            telefono:'',
+            f_nacimiento:'',
+            dni:'',
+            genero:'',
             peso:'',
             altura:'',
             comentario:'',

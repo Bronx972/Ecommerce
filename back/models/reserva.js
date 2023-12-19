@@ -3,10 +3,10 @@ const { Schema, model } = require('mongoose');
 
 
 const ReservaSchema = new Schema({
-    nombres: { type: String, required: true },
-    apellidos: { type: String, required: true },
+    nombres: { type: String, required: false },
+    apellidos: { type: String, required: false },
     pais: { type: String, required: false },
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     perfil: { type: String, default: 'perfil.png', required: false },
     telefono: { type: String, required: false },
     genero: { type: String, required: false },

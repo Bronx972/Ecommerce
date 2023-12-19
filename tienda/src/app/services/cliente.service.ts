@@ -128,4 +128,17 @@ export class ClienteService {
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
     return this._http.post(this.url +'registro_reserva',data,{headers:headers});
   }
+
+  obtenerReservas(token:any):Observable<any>{
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.get(this.url +'obtenerReservas',{headers:headers});
+  }
+  
+
+
+  listar_reservas():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'listar_reservas',{headers:headers});
+  }
+  
 }

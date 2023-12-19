@@ -23,6 +23,7 @@ import { ConfigComponent } from './components/config/config.component';
 import { CreateDescuentoComponent } from './components/descuento/create-descuento/create-descuento.component';
 import { EditDescuentoComponent } from './components/descuento/edit-descuento/edit-descuento.component';
 import { IndexDescuentoComponent } from './components/descuento/index-descuento/index-descuento.component';
+import { ReservaComponent } from "./components/reserva/reserva.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { IndexDescuentoComponent } from './components/descuento/index-descuento/
     CreateDescuentoComponent,
     EditDescuentoComponent,
     IndexDescuentoComponent,
+    ReservaComponent,
     
   ],
   imports: [
