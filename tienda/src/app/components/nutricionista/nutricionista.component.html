@@ -1,0 +1,100 @@
+<app-nav></app-nav>
+
+<main  class="cs-page-wrapper">
+    <nav class="bg-secondary mb-3" aria-label="breadcrumb">
+        <div class="container">
+          <ol class="breadcrumb breadcrumb-alt mb-0">
+            <li class="breadcrumb-item">
+              <a href="index.html"><i class="cxi-home"></i></a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Nutricionista
+            </li>
+          </ol>
+        </div>
+      </nav>
+      
+  
+    <section class="container pt-3 pt-md-4 pb-3 pb-sm-4 pb-lg-5 mb-4 d-flex align-items-center justify-content-center " style="margin-left: 30em;">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="px-md-5">
+                    <h3 class="modal-title mt-4 mb-0 text-center">Nutricionista</h3>
+                    <p class="font-size-sm text-muted text-center"></p>
+                    <form #reservaForm="ngForm" (ngSubmit)="Reserva(reservaForm)" >
+                        <div class="card box-shadow-sm">
+                              <div class="card-header">
+                                  <h5 style="margin-bottom: 0px;">Reserva de asesoramiento</h5>
+                              </div>
+                              <div class="card-body">
+                                  
+                                    <div class="row">
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Nombres</label>
+                                        <input class="form-control" type="text" placeholder="Nombres completos" name="nombres" [(ngModel)]="reserva.nombres" [value]="user_lc?.nombres" required>
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Apellidos</label>
+                                        <input class="form-control" type="text" placeholder="Apellidos completos" name="apellidos" [(ngModel)]="reserva.apellidos" [value]="user_lc?.apellidos" required>
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Correo electrónico</label>
+                                        <input class="form-control" type="email" placeholder="Correo electrónico" name="email" [(ngModel)]="reserva.email"  [value]="user_lc?.email"required>
+                                      </div>
+                    
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Telefono</label>
+                                        <input class="form-control" type="text" placeholder="Telefono" name="telefono" [(ngModel)]="reserva.telefono" [value]="user_lc?.telefono" required>
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Fecha nacimiento</label>
+                                        <input class="form-control" type="date" required name="f_nacimiento" [(ngModel)]="reserva.f_nacimiento"  [value]="user_lc?.f_nacimiento">
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">DNI</label>
+                                        <input class="form-control" type="number" placeholder="DNI"  name="dni" [(ngModel)]="reserva.dni"   [value]="user_lc?.dni" required>
+                                      </div>
+                    
+                                      <div class="col-md-4">
+                                        <label for="validationCustom01" class="form-label">Genero</label>
+                                        <select class="form-control custom-select"  name="genero" [(ngModel)]="reserva.genero"   [value]="user_lc?.genero"required>
+                                          <option value="" disabled selected >Seleccionar</option>
+                                          <option value="Masculino" >Masculino</option>
+                                          <option value="Femenino">Femenino</option>
+                                        </select>
+                                      </div>
+
+
+
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Peso</label>
+                                        <input class="form-control" type="text" placeholder="...Kg"  name="peso" [(ngModel)]="reserva.peso" required >
+                                      </div>
+
+                                      
+                                      <div class="col-md-4 form-group">
+                                        <label for="validationCustom01" class="form-label">Altura</label>
+                                        <input class="form-control" type="text" placeholder="...cm"  name="altura" [(ngModel)]="reserva.altura" required>
+                                      </div>
+
+                                      <div class="col-md-12 form-group">
+                                        <label for="validationCustom01" class="form-label">Comentario</label>
+                                        <!-- Cambia de <input> a <textarea> -->
+                                        <textarea class="form-control" placeholder="......" name="comentario" [(ngModel)]="reserva.comentario" required></textarea>
+                                    </div>
+                                    
+                                    </div>
+                              </div>
+                              <div class="card-footer">
+                                  <button class="btn btn-primary mr-3 type='submit' ">Crear reserva</button>
+                                  <a  [routerLink]="['/panel/clientes']" class="btn btn-warning">Regresar</a>
+                              </div>
+                    </div>   
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<app-footer></app-footer>
